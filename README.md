@@ -2,8 +2,6 @@
 
 A modern web application for tracking Immutable gem rewards and earnings. Built with Next.js, TypeScript, and Chart.js.
 
-![Gem Tracker Screenshot](https://via.placeholder.com/800x400/1f2937/ffffff?text=Gem+Tracker+Dashboard)
-
 ## ✨ Features
 
 - **📊 Interactive Dashboard** - View total gems, transactions, and earnings breakdown
@@ -24,8 +22,8 @@ A modern web application for tracking Immutable gem rewards and earnings. Built 
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/gem-tracker.git
-cd gem-tracker
+git clone https://github.com/zanneee/Immutable-Gem-Tracker.git
+cd Immutable-Gem-Tracker
 ```
 
 2. Install dependencies
