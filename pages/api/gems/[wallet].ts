@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { GemEarning, GemResponse, GemStats } from '../../types';
+import type { GemEarning, GemResponse, GemStats } from '../../../types';
 
 export default async function handler(
     req: NextApiRequest,
