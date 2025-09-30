@@ -1,29 +1,20 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import type { FilterState } from '../types';
+import { DEFAULT_FILTERS } from '../constants';
 
 export const useFilters = () => {
-    const [filters, setFilters] = useState<FilterState>({
-        searchQuery: '',
-        dateFromFilter: '',
-        dateToFilter: '',
-        typeFilter: 'all'
-    });
+    const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
 
-    const updateFilter = <K extends keyof FilterState>(
+    const updateFilter = useCallback(<K extends keyof FilterState>(
         key: K,
         value: FilterState[K]
     ) => {
         setFilters(prev => ({ ...prev, [key]: value }));
-    };
+    }, []);
 
-    const resetFilters = () => {
-        setFilters({
-            searchQuery: '',
-            dateFromFilter: '',
-            dateToFilter: '',
-            typeFilter: 'all'
-        });
-    };
+    const resetFilters = useCallback(() => {
+        setFilters(DEFAULT_FILTERS);
+    }, []);
 
     return {
         filters,

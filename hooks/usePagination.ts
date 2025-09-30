@@ -1,23 +1,24 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import type { PaginationState } from '../types';
+import { DEFAULT_PAGINATION, UI_CONFIG } from '../constants';
 
-export const usePagination = (initialItemsPerPage: number = 50) => {
+export const usePagination = (initialItemsPerPage: number = UI_CONFIG.DEFAULT_ITEMS_PER_PAGE) => {
     const [pagination, setPagination] = useState<PaginationState>({
-        currentPage: 1,
+        ...DEFAULT_PAGINATION,
         itemsPerPage: initialItemsPerPage
     });
 
-    const setCurrentPage = (page: number) => {
+    const setCurrentPage = useCallback((page: number) => {
         setPagination(prev => ({ ...prev, currentPage: page }));
-    };
+    }, []);
 
-    const setItemsPerPage = (itemsPerPage: number) => {
+    const setItemsPerPage = useCallback((itemsPerPage: number) => {
         setPagination({ currentPage: 1, itemsPerPage });
-    };
+    }, []);
 
-    const resetToFirstPage = () => {
+    const resetToFirstPage = useCallback(() => {
         setPagination(prev => ({ ...prev, currentPage: 1 }));
-    };
+    }, []);
 
     return {
         pagination,

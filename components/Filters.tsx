@@ -1,4 +1,6 @@
-import type { FilterState } from '../types';
+import type { FilterState, SelectOption } from '../types';
+import { MultiSelect } from './MultiSelect';
+import { UI_CONFIG, UI_TEXT } from '../constants';
 
 interface FiltersProps {
     filters: FilterState;
@@ -10,6 +12,8 @@ interface FiltersProps {
     onItemsPerPageChange: (itemsPerPage: number) => void;
     startIndex: number;
     endIndex: number;
+    ruleIdOptions: SelectOption[];
+    gameNameOptions: SelectOption[];
 }
 
 export const Filters: React.FC<FiltersProps> = ({
@@ -21,7 +25,9 @@ export const Filters: React.FC<FiltersProps> = ({
     itemsPerPage,
     onItemsPerPageChange,
     startIndex,
-    endIndex
+    endIndex,
+    ruleIdOptions,
+    gameNameOptions
 }) => {
     return (
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -31,22 +37,30 @@ export const Filters: React.FC<FiltersProps> = ({
                     onClick={onReset}
                     className="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                 >
-                    Reset Filters
+                    {UI_TEXT.RESET_FILTERS}
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <div>
-                    <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
-                        Rule ID (external_id)
-                    </label>
-                    <input
-                        type="text"
-                        id="search"
-                        value={filters.searchQuery}
-                        onChange={(e) => onFilterChange('searchQuery', e.target.value)}
-                        placeholder="e.g., daily-gems-claim"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    <MultiSelect
+                        label="Rule ID (Quest)"
+                        options={ruleIdOptions}
+                        selectedValues={filters.searchQuery}
+                        onChange={(values) => onFilterChange('searchQuery', values)}
+                        placeholder="Select rule IDs..."
+                        maxDisplayItems={2}
+                    />
+                </div>
+
+                <div>
+                    <MultiSelect
+                        label="Game Name"
+                        options={gameNameOptions}
+                        selectedValues={filters.gameNameFilter}
+                        onChange={(values) => onFilterChange('gameNameFilter', values)}
+                        placeholder="Select games..."
+                        maxDisplayItems={2}
                     />
                 </div>
 
@@ -108,13 +122,13 @@ export const Filters: React.FC<FiltersProps> = ({
                 <div className="flex items-center space-x-2">
                     <span className="text-sm text-gray-600">Show:</span>
                     <div className="flex space-x-1">
-                        {[10, 50, 100, -1].map((size) => (
+                        {UI_CONFIG.ITEMS_PER_PAGE_OPTIONS.map((size) => (
                             <button
                                 key={size}
                                 onClick={() => onItemsPerPageChange(size)}
                                 className={`px-3 py-1 text-sm border rounded-md ${itemsPerPage === size
-                                        ? 'bg-blue-600 text-white border-blue-600'
-                                        : 'bg-white border-gray-300 hover:bg-gray-50'
+                                    ? 'bg-blue-600 text-white border-blue-600'
+                                    : 'bg-white border-gray-300 hover:bg-gray-50'
                                     }`}
                             >
                                 {size === -1 ? 'All' : size}
