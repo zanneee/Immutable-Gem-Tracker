@@ -47,12 +47,6 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser (or the port shown in your terminal)
 
-## 🚀 Deploy to Vercel
-
-Deploy your own copy of this app with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzanneee%2FImmutable-Gem-Tracker)
-
 ## 🛠️ Built With
 
 - **[Next.js](https://nextjs.org/)** - React framework for production
