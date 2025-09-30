@@ -2,14 +2,23 @@
 
 A modern web application for tracking Immutable gem rewards and earnings. Built with Next.js, TypeScript, and Chart.js.
 
+## 🌐 Live Demo
+
+**Try it now:** [https://immutable-gem-tracker.vercel.app/](https://immutable-gem-tracker.vercel.app/)
+
+> 💡 **Quick Test**: Use wallet address `0xbbb4e3fa3e7efed0834e4eaeb6beeda635d67da2` to see the app in action with real data!
+
 ## ✨ Features
 
-- **📊 Interactive Dashboard** - View total gems, transactions, and earnings breakdown
+- **📊 Interactive Dashboard** - View total gems, transactions, games played, and earnings breakdown
 - **📈 Visual Analytics** - Stacked bar chart showing daily earning trends (last 30 days)
-- **🔍 Advanced Filtering** - Search by rule ID, date range, and transaction type
-- **📋 Detailed Table** - Paginated view of all gem earning transactions
+- **🔍 Advanced Multi-Select Filtering** - Filter by multiple games, rule IDs, date ranges, and transaction types
+- **📋 Sortable Data Table** - Click any column header to sort; paginated view with customizable page sizes
+- **🎮 Game Analytics** - Track unique games played and earnings per game
+- **🔄 Column Sorting** - Sort by date, game name, gems earned, quest type, and more
 - **📱 Responsive Design** - Works seamlessly on desktop and mobile devices
-- **⚡ Real-time Data** - Fetches live data from Immutable API
+- **⚡ Real-time Data** - Fetches live data from Immutable API with robust error handling
+- **🛡️ Error Recovery** - Automatic retry logic and user-friendly error messages
 
 ## 🚀 Quick Start
 
@@ -55,19 +64,25 @@ Deploy your own copy of this app with one click:
 ## 📖 Usage
 
 1. **Enter Wallet Address** - Input any Ethereum wallet address (0x...)
-2. **View Overview** - See total gems earned, transaction count, and type breakdown
+2. **View Overview** - See total gems, transactions, games played, and on-chain/off-chain breakdown
 3. **Analyze Trends** - Use the interactive chart to visualize daily earning patterns
-4. **Filter Data** - Search by rule ID, date range, or transaction type
-5. **Browse Transactions** - Navigate through paginated transaction history
+4. **Advanced Filtering** - Use multi-select dropdowns to filter by:
+   - **Multiple Games** - Select from 49+ unique games
+   - **Multiple Rule IDs** - Choose from hundreds of quest types
+   - **Date Range** - Filter by specific time periods
+   - **Transaction Type** - On-chain vs off-chain
+5. **Sort & Analyze** - Click any column header to sort data by date, game, gems earned, etc.
+6. **Browse Transactions** - Navigate through paginated results (10/50/100/All per page)
 
 ## 🏗️ Project Structure
 
 ```
-├── components/          # Reusable UI components
-├── hooks/              # Custom React hooks
+├── components/          # Reusable UI components (MultiSelect, EarningsTable, etc.)
+├── constants/          # Centralized configuration and constants
+├── hooks/              # Custom React hooks (useSort, useFilters, etc.)
 ├── pages/              # Next.js pages and API routes
 ├── types/              # TypeScript type definitions
-└── utils/              # Utility functions
+└── utils/              # Utility functions (filtering, sorting, data processing)
 ```
 
 ## 🔧 API Integration
