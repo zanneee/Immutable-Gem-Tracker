@@ -6,7 +6,7 @@ A modern web application for tracking Immutable gem rewards and earnings. Built 
 
 **Try it now:** [https://immutable-gem-tracker.vercel.app/](https://immutable-gem-tracker.vercel.app/)
 
-> 💡 **Quick Test**: Use wallet address `0xbbb4e3fa3e7efed0834e4eaeb6beeda635d67da2` to see the app in action with real data!
+> 💡 **Quick Test**: Use wallet address `0x15553803adf64a7584100ec3e2E4522256631954` to see the app in action with real data!
 
 ## ✨ Features
 
