@@ -110,8 +110,3 @@ GET https://api.immutable.com/v1/rewards/gems/{wallet}/latest_earnings
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Immutable](https://www.immutable.com/) for providing the gem rewards API
-- [Vercel](https://vercel.com/) for hosting and deployment platform
